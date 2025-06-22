@@ -1,0 +1,43 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Members Management</title>
+</h:head>
+<h:body>
+    <h1>Members Management</h1>
+    
+    <h:form>
+        <h:panelGrid columns="2">
+            <h:outputLabel for="name" value="Name:" />
+            <h:inputText id="name" value="#{memberController.member.name}" required="true" />
+            
+            <h:outputLabel for="membershipDate" value="Membership Date:" />
+            <p:calendar id="membershipDate" value="#{memberController.member.membershipDate}" pattern="yyyy-MM-dd" required="true" showButtonPanel="true" />
+        </h:panelGrid>
+        
+        <h:commandButton value="Add Member" action="#{memberController.createMember}" />
+    </h:form>
+    
+    <h:dataTable value="#{memberController.members}" var="member">
+        <h:column>
+            <f:facet name="header">ID</f:facet>
+            #{member.id}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Name</f:facet>
+            #{member.name}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Membership Date</f:facet>
+            #{member.membershipDate}
+        </h:column>
+        <h:column>
+            <f:facet name="header">Actions</f:facet>
+            <h:commandButton value="Edit" action="#{memberController.editMember(member)}" />
+            <h:commandButton value="Delete" action="#{memberController.deleteMember(member.id)}" />
+        </h:column>
+    </h:dataTable>
+</h:body>
+</html>

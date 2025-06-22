@@ -1,0 +1,24 @@
+# Ignore build output
+/target/
+
+# Ignore IDE files
+/.idea/
+*.iml
+*.ipr
+*.iws
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore database files
+ui_faces_db.sqlite
+
+# Ignore logs
+*.log
+
+# Ignore Maven wrapper files
+.mvn/wrapper/maven-wrapper.jar
+
+# Ignore VS Code settings
+.vscode/
